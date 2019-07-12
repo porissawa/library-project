@@ -1,5 +1,29 @@
 <h1>{{title}}</h1>
-<span>Written by: {{author}}</span>
+<img src="{{imagePath}}" alt="{{title}}">
+<span>Written by: {{author.0.name}} {{author.0.lastName}}</span>
 <p>Summary: {{description}}</p>
 <p>Rating: {{rating}}/10</p>
 <a href="/books">Return</a>
+<hr>
+<br>
+<br>
+<p>Add a review</p>
+<form action="/reviews/add/{{_id}}" method="POST">
+  <label for="user">User:</label>
+  <input type="text" name="user">
+
+  <label for="comments">Comments:</label>
+  <textarea type="text" name="comments"></textarea>
+
+  <button type="submit">ADD</button>
+</form>
+<hr>
+<br>
+<br>
+<h2>Reviews</h2>
+{{#each reviews}}
+<div class="review-item">
+  <p>{{comments}}</p>
+  <span>{{user}}</span>
+</div>
+{{/each}}

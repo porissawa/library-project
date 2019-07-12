@@ -1,6 +1,20 @@
-<h1>Books</h1>
-<ul>
-  {{#each books}}
-    <li><a href="/book/{{_id}}">{{title}}</a></li>
-  {{/each}}
-</ul>
+<a href="/books/add">Create new book</a> | 
+<a href="/auth/signup">Signup</a> | 
+{{#if user}}
+<a href="/auth/logout">Logout</a> 
+{{else}}
+<a href="/auth/login">Login</a> | 
+{{/if}}
+
+<h1>Check out our books</h1>
+{{#each books}}
+  <p>
+    <img src="{{this.imgPath}}" alt="">
+    <a href="/book/{{this._id}}">{{this.title}}</a> 
+    {{#if this.isOwner}}
+    <a href="/books/edit/{{this._id}}" class="edit-button">EDIT</a>
+    {{/if}}
+  </p>
+{{/each}}
+<br>
+<a href="/auth/logout">Log out</a>

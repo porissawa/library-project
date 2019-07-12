@@ -1,0 +1,24 @@
+<form action="/books/add" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="owner" value="{{user._id}}">
+  
+  <label for="">Title:</label>
+  <input type="text" name="title">
+
+  <label for="">Author:</label>
+  <select type="text" name="author">
+    {{#each authors}}
+      <option value="{{_id}}">{{name}} {{lastName}}</option>
+    {{/each}}
+  </select>
+
+  <label for="">Description:</label>
+  <input type="text" name="description">
+
+  <label for="">Rate:</label>
+  <input type="number" name="rating">
+
+  <label>Cover Art</label>
+  <input type="file" name="image">
+
+  <button type="submit">ADD</button>
+</form>

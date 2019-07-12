@@ -1,0 +1,21 @@
+<form action="/auth/login" method="POST">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" name="username">
+  </div>
+  <br>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" name="password">
+  </div>
+  <br>
+  <div>
+    <input type="submit" value="Log In">
+  </div>
+</form>
+{{#if message}}
+  <p>{{message}}</p>
+{{/if}}
+<div>
+  <p><a href="/auth/slack">Login with Slack</a></p>
+</div>
